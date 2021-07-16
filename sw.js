@@ -46,9 +46,9 @@ self.addEventListener("activate", (e) => {
 });
 
 self.addEventListener("fetch", (e) => {
-	e.respondWith(() => {
+	e.respondWith(
 		caches.match(e.request).then((res) => {
 			return res ? res : fetch(e.request);
-		});
-	});
+		})
+	);
 });
